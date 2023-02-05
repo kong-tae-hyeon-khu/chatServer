@@ -1,0 +1,19 @@
+{
+  "name": "chatproject",
+  "version": "1.0.0",
+  "description": "For Study (DataBase & Networking)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kong-tae-hyeon-khu/chatServer.git"
+  },
+  "author": "kongtaehyoen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kong-tae-hyeon-khu/chatServer/issues"
+  },
+  "homepage": "https://github.com/kong-tae-hyeon-khu/chatServer#readme"
+}
