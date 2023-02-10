@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
+  id: mongoose.Schema.Types.ObjectId,
   name: String,
   // messages: 참조.
+  chat: Array,
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = userSchema;
