@@ -18,6 +18,10 @@ mongooseConnection();
 // User Schema
 let users = require("./DB/Schema/User");
 users = mongoose.model("users", users);
+
+let chats = require("./DB/Schema/Chat");
+chats = mongoose.model("chats", chats);
+
 // For JSON Request parsing
 app.use(express.json());
 
@@ -30,6 +34,23 @@ app.post("/api/regist", (req, res) => {
   newUser
     .save()
     .then(console.log("Save User."))
+    .catch((err) => {
+      console.log(err);
+    });
+  res.sendStatus(200);
+});
+
+// User Chat (채팅)
+app.post("/api/user/chat", (req, res) => {
+  let body = req.body;
+  console.log(body);
+  let newChat = new chats({
+    chatby: body.user,
+    contents: body.chat,
+  });
+  newChat
+    .save()
+    .then(console.log("Save Chating"))
     .catch((err) => {
       console.log(err);
     });
