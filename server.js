@@ -45,9 +45,10 @@ app.post("/api/user/chat", (req, res) => {
   let body = req.body;
   console.log(body);
   let newChat = new chats({
-    chatby: body.user,
+    chatby: users.id,
     contents: body.chat,
   });
+  console.log(users.id);
   newChat
     .save()
     .then(console.log("Save Chating"))
