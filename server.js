@@ -7,12 +7,13 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, { path: "/socket.io" });
 
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
-
 io.on("connection", (socket) => {
   console.log("a user connected");
+});
+
+// Front Page
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 });
 
 server.listen(3000, () => {
