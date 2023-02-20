@@ -41,20 +41,22 @@ app.post("/api/regist", (req, res) => {
 });
 
 // User Chat (채팅)
-// 1. 기본 유저 (설정.)
+// 1. 임시 고정된 기본 유저 (공태현.)
 app.post("/api/user/chat", (req, res) => {
   let body = req.body;
-  console.log(body);
-  let newChat = new chats({
-    chatby: users.id,
-    contents: body.chat,
-  });
-  console.log(users.id);
-  newChat
-    .save()
-    .then(console.log("Save Chating"))
-    .catch((err) => {
-      console.log(err);
+
+  users.findOne({ name: "공태현" }, (err, doc) => {
+    let newChat = new chats({
+      chatter: doc._id,
+      contents: body.chat,
     });
+    newChat
+      .save()
+      .then(console.log("Save Chat"))
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
   res.sendStatus(200);
 });

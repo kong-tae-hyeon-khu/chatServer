@@ -5,8 +5,9 @@ user = mongoose.model("users", user);
 
 const chatSchema = mongoose.Schema({
   id: mongoose.Schema.Types.ObjectId,
-  chatBy: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+  chatter: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
   contents: String,
+  title: String,
 });
 
 module.exports = chatSchema;
