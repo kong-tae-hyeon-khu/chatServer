@@ -41,6 +41,7 @@ app.post("/api/regist", (req, res) => {
 });
 
 // User Chat (채팅)
+// 1. 기본 유저 (설정.)
 app.post("/api/user/chat", (req, res) => {
   let body = req.body;
   console.log(body);
