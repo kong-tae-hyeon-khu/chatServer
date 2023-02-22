@@ -7,10 +7,14 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, { path: "/socket.io" });
 
+app.use(express.json());
+
+// Client 연결 확인.
 io.on("connection", (socket) => {
   console.log("a user connected");
 });
 
+// Message 수신.
 io.on("client_msg", (msg) => {
   console.log(`클라이언트에서 보낸 메시지 수신 : ${msg}`);
 });
