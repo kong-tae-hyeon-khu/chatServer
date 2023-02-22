@@ -4,7 +4,8 @@
   "description": "For Study (DataBase & Networking)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "react-scripts start"
   },
   "repository": {
     "type": "git",
