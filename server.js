@@ -5,23 +5,24 @@ const http = require("http");
 const server = http.createServer(app);
 
 const { Server } = require("socket.io");
-const io = new Server(server, { path: "/socket.io" });
+const io = new Server(server, {
+  path: "/socket.io",
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
-// Client 연결 확인.
+// Client 연결.
 io.on("connection", (socket) => {
-  console.log("a user connected");
-});
-
-// Message 수신.
-io.on("client_msg", (msg) => {
-  console.log(`클라이언트에서 보낸 메시지 수신 : ${msg}`);
-});
-
-// Front Page
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  // Client Message 수신.
+  socket.on("message", (msg) => {
+    console.log(msg);
+  });
 });
 
 server.listen(8000, () => {

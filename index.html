@@ -42,7 +42,7 @@
     });
 
     // # 서버가 보낸 "사용자정의 이벤트" 처리: 매개변수로 들어온 데이터를 받아서 처리한다.
-    socket.on("server_msg", (data) => {
+    socket.on("message", (data) => {
       console.log(`서버에게 받은 메시지: ${data}`);
     });
 
