@@ -19,6 +19,7 @@ app.use(cors());
 
 // Client 연결.
 io.on("connection", (socket) => {
+  console.log("User Connect");
   // Client Message 수신.
   socket.on("message", (msg) => {
     console.log(msg);
