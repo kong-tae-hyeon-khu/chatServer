@@ -1,10 +1,13 @@
+import Button from "./components/Button";
+import Input from "./components/Input";
+
 const Login = () => {
   return (
     <div>
       <form>
         <input></input>
         <input></input>
-        <button>로그인</button>
+        <Button>로그인</Button>
       </form>
     </div>
   );
