@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Router
-import Chat from "./Chat";
-import Login from "./Login";
-import Register from "./Register";
+import Chat from "./pages/Chat";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
